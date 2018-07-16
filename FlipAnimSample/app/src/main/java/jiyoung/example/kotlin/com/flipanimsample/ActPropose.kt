@@ -20,39 +20,63 @@ class ActPropose : Activity() {
         flip_lyt!!.cameraDistance = Propose.getCameraDistanceX(this) * 2
 
         /** create animator  */
-        val font = ObjectAnimator.ofFloat(flip_lyt, View.ROTATION_Y, 0F, 90F)
-        font.duration = 500
+        val frontRight = ObjectAnimator.ofFloat(flip_lyt, View.ROTATION_Y, 0F, 90F)
+        frontRight.duration = 500
+        val frontLeft = ObjectAnimator.ofFloat(flip_lyt, View.ROTATION_Y, 0F, -90F)
+        frontLeft.duration = 500
         /** "duration" use to onClick  */
-        val back = ObjectAnimator.ofFloat(flip_lyt, View.ROTATION_Y, -90F, 0F)
-        back.duration = 500
+        val backRight = ObjectAnimator.ofFloat(flip_lyt, View.ROTATION_Y, -90F, 0F)
+        backRight.duration = 500
+        val backLeft = ObjectAnimator.ofFloat(flip_lyt, View.ROTATION_Y, 90F, 0F)
+        backLeft.duration = 500
         /** "duration" use to onClick  */
 
         /** Propose create  */
         val propose = Propose(this)
-        propose.motionRight.play(font).next(back)
+        propose.motionRight.play(frontRight).next(backRight)
+        propose.motionLeft.play(frontLeft).next(backLeft)
         /** set right move Animator  */
         propose.motionRight.motionDistance = 200 * Propose.getDensity(this)
+        propose.motionLeft.motionDistance = 200 * Propose.getDensity(this)
         /** set Drag Distance  */
         flip_lyt!!.setOnTouchListener(propose)
         /** set touch listener  */
 
         /** set AnimatorListener for flip  */
-        font.addListener(object : JwAnimatorListener() {
+        frontRight.addListener(object : JwAnimatorListener() {
             override fun onStart(arg0: Animator) {}
             override fun onEnd(arg0: Animator) {
-                boy_img!!.visibility = View.INVISIBLE
-                girl_img!!.visibility = View.VISIBLE
+                front_img!!.visibility = View.INVISIBLE
+                X_img!!.visibility = View.VISIBLE
                 flip_lyt!!.setBackgroundResource(R.drawable.shape_alpha2)
             }
 
             override fun onReverseStart(arg0: Animator) {
-                boy_img!!.visibility = View.VISIBLE
-                girl_img!!.visibility = View.INVISIBLE
+                front_img!!.visibility = View.VISIBLE
+                X_img!!.visibility = View.INVISIBLE
                 flip_lyt!!.setBackgroundResource(R.drawable.shape_alpha1)
             }
 
             override fun onReverseEnd(arg0: Animator) {}
         })
+
+        frontLeft.addListener(object : JwAnimatorListener() {
+            override fun onStart(arg0: Animator) {}
+            override fun onEnd(arg0: Animator) {
+                front_img!!.visibility = View.INVISIBLE
+                O_img!!.visibility = View.VISIBLE
+                flip_lyt!!.setBackgroundResource(R.drawable.shape_alpha2)
+            }
+
+            override fun onReverseStart(arg0: Animator) {
+                front_img!!.visibility = View.VISIBLE
+                O_img!!.visibility = View.INVISIBLE
+                flip_lyt!!.setBackgroundResource(R.drawable.shape_alpha1)
+            }
+
+            override fun onReverseEnd(arg0: Animator) {}
+        })
+
 
         /** set Down Motion  */
         /*val down = ObjectAnimator.ofFloat(flip_lyt, View.ROTATION_X, 180F, -180F)

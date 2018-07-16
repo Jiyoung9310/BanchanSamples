@@ -16,19 +16,27 @@
         android:paddingTop="20dp" >
 
         <ImageView
-            android:id="@+id/girl_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/back"
-            android:visibility="invisible" />
-
-        <ImageView
-            android:id="@+id/boy_img"
+            android:id="@+id/front_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:src="@drawable/front" />
+
+        <ImageView
+            android:id="@+id/O_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/backoimg"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/X_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/backximg"
+            android:visibility="invisible" />
 
     </FrameLayout>
 
