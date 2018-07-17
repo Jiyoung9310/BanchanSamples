@@ -42,6 +42,7 @@ class ActPropose : Activity() {
         flip_lyt!!.setOnTouchListener(propose)
         /** set touch listener  */
 
+
         /** set AnimatorListener for flip  */
         frontRight.addListener(object : JwAnimatorListener() {
             override fun onStart(arg0: Animator) {}
@@ -76,6 +77,9 @@ class ActPropose : Activity() {
 
             override fun onReverseEnd(arg0: Animator) {}
         })
+
+        btnX.setOnClickListener { propose.motionRight.play(frontRight).next(backRight) }
+        btnO.setOnClickListener { propose.motionLeft.play(frontLeft).next(backLeft) }
 
 
         /** set Down Motion  */
