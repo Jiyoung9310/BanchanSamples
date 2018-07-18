@@ -78,8 +78,18 @@ class ActPropose : Activity() {
             override fun onReverseEnd(arg0: Animator) {}
         })
 
-        btnX.setOnClickListener { propose.motionRight.play(frontRight).next(backRight) }
-        btnO.setOnClickListener { propose.motionLeft.play(frontLeft).next(backLeft) }
+        val selectX = ObjectAnimator.ofFloat(flip_lyt, View.ROTATION_Y, 0F, 90F, -90F, 0F)
+        selectX.duration = 500
+        btnX.setOnClickListener {
+            selectX.start()
+            //propose.motionRight.play(frontRight).next(backRight)
+        }
+        val selectO = ObjectAnimator.ofFloat(flip_lyt, View.ROTATION_Y, 0F, -90F, 90F, 0F)
+        selectO.duration = 500
+        btnO.setOnClickListener {
+            selectO.start()
+            //propose.motionLeft.play(frontLeft).next(backLeft)
+        }
 
 
         /** set Down Motion  */
@@ -90,6 +100,5 @@ class ActPropose : Activity() {
         propose.motionDown.enableFling(false).enableTabUp(false)
         propose.motionDown.move(propose.motionDown.motionDistance / 2)// vertical center
     }
-
 
 }
