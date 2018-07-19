@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".ActPropose">
         </activity>
+        <activity android:name=".ActSnappy">
+        </activity>
     </application>
 
 </manifest>

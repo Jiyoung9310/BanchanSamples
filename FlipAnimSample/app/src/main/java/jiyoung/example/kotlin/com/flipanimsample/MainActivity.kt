@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         btnManual.setOnClickListener { startActivity(Intent(this@MainActivity, ActManual::class.java)) }
         btnPropose.setOnClickListener { startActivity(Intent(this@MainActivity, ActPropose::class.java)) }
+        btnSnappy.setOnClickListener { startActivity(Intent(this@MainActivity, ActSnappy::class.java)) }
     }
 }
 
