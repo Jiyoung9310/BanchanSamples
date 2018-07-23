@@ -78,13 +78,13 @@ class ActPropose : Activity() {
             override fun onReverseEnd(arg0: Animator) {}
         })
 
-        val selectX = ObjectAnimator.ofFloat(flip_lyt, View.ROTATION_Y, 0F, 90F, -90F, 0F)
+        val selectX = ObjectAnimator.ofFloat(flip_lyt, View.ROTATION_Y, 0F, 90F)
         selectX.duration = 500
         btnX.setOnClickListener {
             selectX.start()
             //propose.motionRight.play(frontRight).next(backRight)
         }
-        val selectO = ObjectAnimator.ofFloat(flip_lyt, View.ROTATION_Y, 0F, -90F, 90F, 0F)
+        val selectO = ObjectAnimator.ofFloat(flip_lyt, View.ROTATION_Y, 0F, -90F)
         selectO.duration = 500
         btnO.setOnClickListener {
             selectO.start()
